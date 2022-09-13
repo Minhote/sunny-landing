@@ -1,0 +1,37 @@
+// Colors
+$primary-colors: (
+  "soft-red": hsl(7, 99%, 70%),
+  "yellow": hsl(51, 100%, 49%),
+  "dark-desaturated": hsl(167, 40%, 24%),
+  //cyan (graphic design text)
+  "dark-blue": hsl(198, 62%, 26%),
+  //(photography text)
+  "dark-moderate": hsl(168, 34%, 41%),
+  //cyan (footer)
+);
+
+$neutral-colors: (
+  "very-dark-desaturated-blue": hsl(212, 27%, 19%),
+  "very-dark-grayish-blue": hsl(213, 9%, 39%),
+  "dark-grayish-blue": hsl(232, 10%, 55%),
+  "grayish-blue": hsl(210, 4%, 67%),
+  "white": hsl(0, 0%, 100%),
+);
+
+// Font Families
+$barlow: "Barlow", sans-serif;
+$fraunces: "Fraunces", serif;
+
+// Font Sizes
+$font-size: (
+  "large": clamp(1.5rem, 1.6rem + 1vw, 2.5rem),
+  "medium": clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem),
+  "small": clamp(1rem, 1.2rem + 0.5vw, 1.3rem),
+);
+
+//Breakpoints
+$breakpoints: (
+  "desktop": 1300px,
+  "tablet": 800px,
+  "mobile": 400px,
+);
