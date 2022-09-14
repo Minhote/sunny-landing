@@ -2,149 +2,292 @@
 @use "mixins" as *;
 
 .main-container__wrap {
-  @include background-image("../images/desktop/image-header.jpg");
   background-position: bottom;
   grid-column: 1 / -1;
   grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    flex-wrap: wrap;
-    position: relative;
+  &__header {
+    @include background-image("../images/desktop/image-header.jpg");
+    background-position: center;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: map-get($font-size, "large");
+    font-family: $barlow;
+    min-height: 70vh;
 
-    &__title {
-      color: map-get($neutral-colors, "white");
+    &__main-title {
+      font-family: $fraunces;
+      letter-spacing: 0.2rem;
       text-transform: uppercase;
-      font-size: map-get($font-size, "large");
+      color: map-get($neutral-colors, "white");
+      position: relative;
+      font-size: map-get($font-size, "main");
+      margin-top: 2rem;
     }
 
-    &__list {
+    &__nav {
       display: flex;
-      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      justify-content: space-around;
-      gap: 8rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      grid-column: 1 / -1;
 
-      &__item {
-        list-style: none;
-        display: inline-block;
+      &__title {
+        color: map-get($neutral-colors, "white");
+        text-transform: uppercase;
+        font-size: map-get($font-size, "large");
+      }
 
-        &__content {
-          text-decoration: none;
-          color: map-get($neutral-colors, "white");
-          font-size: map-get($font-size, "medium");
-          font-weight: 500;
+      &__list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 8rem;
 
-          &--btn {
-            color: map-get($neutral-colors, "very-dark-desaturated-blue");
-            background-color: map-get($neutral-colors, "white");
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            text-transform: uppercase;
+        &__item {
+          list-style: none;
+          display: inline-block;
+
+          &__content {
+            text-decoration: none;
+            color: map-get($neutral-colors, "white");
+            font-size: map-get($font-size, "medium");
+            font-weight: 500;
+
+            &--btn {
+              color: map-get($neutral-colors, "very-dark-desaturated-blue");
+              background-color: map-get($neutral-colors, "white");
+              padding: 0.5rem 1.5rem;
+              border-radius: 2rem;
+              text-transform: uppercase;
+            }
           }
         }
       }
-    }
 
-    &__toggle {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 1rem;
-      width: 5rem;
-      padding: 1rem;
-      overflow: hidden;
-      display: none;
+      &__toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        width: 5rem;
+        padding: 1rem;
+        overflow: hidden;
+        display: none;
 
-      & div {
-        height: 0.2rem;
-        width: 100%;
-        background-color: map-get($neutral-colors, "white");
-        transition: all 0.5s ease-in-out;
+        & div {
+          height: 0.2rem;
+          width: 100%;
+          background-color: map-get($neutral-colors, "white");
+          transition: all 0.5s ease-in-out;
+        }
+
+        &.active {
+          & > div:nth-of-type(1) {
+            transform-origin: 0% 0%;
+            transform: rotate(45deg) translate(5px, -3px);
+          }
+
+          & > div:nth-of-type(2) {
+            opacity: 0;
+          }
+
+          & > div:nth-of-type(3) {
+            transform: rotate(-45deg) translate(8px, -9px);
+          }
+        }
       }
 
-      &.active {
-        & > div:nth-of-type(1) {
-          transform-origin: 0% 0%;
-          transform: rotate(45deg) translate(5px, -3px);
-        }
-
-        & > div:nth-of-type(2) {
-          opacity: 0;
-        }
-
-        & > div:nth-of-type(3) {
-          transform: rotate(-45deg) translate(8px, -9px);
+      @include media-query-and(
+        map-get($breakpoints, "tablet"),
+        map-get($breakpoints, "desktop")
+      ) {
+        &__list {
+          &__item {
+            &__content {
+              &--btn {
+                &:hover {
+                  color: map-get($neutral-colors, "white");
+                  background-color: map-get($primary-colors, "dark-moderate");
+                }
+              }
+            }
+          }
         }
       }
-    }
 
-    @include media-query-and(
-      map-get($breakpoints, "tablet"),
-      map-get($breakpoints, "desktop")
-    ) {
-      &__list {
-        &__item {
-          &__content {
-            &--btn {
-              &:hover {
+      @include media-query(map-get($breakpoints, "tablet")) {
+        &__toggle {
+          display: flex;
+          position: relative;
+        }
+
+        &__list {
+          position: absolute;
+          top: 100%;
+          background-color: map-get($neutral-colors, "white");
+          left: 5%;
+          right: 5%;
+          flex-direction: column;
+          gap: 2rem;
+          padding: 1.5rem;
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: all 0.5s ease-in-out;
+          z-index: 1;
+
+          &.active {
+            transform: scaleY(1);
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: -10%;
+            border-top: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid white;
+            border-bottom: 10px solid white;
+          }
+
+          &__item {
+            &__content {
+              color: map-get($neutral-colors, "very-dark-desaturated-blue");
+
+              &--btn {
+                background-color: map-get($primary-colors, "yellow");
                 color: map-get($neutral-colors, "white");
-                background-color: map-get($primary-colors, "dark-moderate");
               }
             }
           }
         }
       }
     }
+  }
 
-    @include media-query(map-get($breakpoints, "tablet")) {
-      &__toggle {
+  &__grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50rem;
+      padding: 10rem;
+
+      &__box {
         display: flex;
-        position: relative;
-      }
-
-      &__list {
-        position: absolute;
-        top: 100%;
-        background-color: map-get($neutral-colors, "white");
-        left: 5%;
-        right: 5%;
         flex-direction: column;
-        gap: 2rem;
-        padding: 1.5rem;
-        transform: scaleY(0);
-        transform-origin: top;
-        transition: all 0.5s ease-in-out;
+        gap: 3rem;
+        align-items: flex-start;
+        justify-content: center;
 
-        &.active{
-            transform: scaleY(1);
+        &__title {
+          font-size: map-get($font-size, "large");
+          font-family: $fraunces;
+          font-weight: 900;
         }
 
-        &::before {
-          content: "";
-          position: absolute;
-          right: 0;
-          top: -10%;
-          border-top: 10px solid transparent;
-          border-left: 10px solid transparent;
-          border-right: 10px solid white;
-          border-bottom: 10px solid white;
+        &__para {
+          font-size: map-get($font-size, "medium");
+          font-weight: 500;
+          font-family: $barlow;
+          color: map-get($neutral-colors, "very-dark-grayish-blue");
         }
 
-        &__item {
-          &__content {
-            color: map-get($neutral-colors, "very-dark-desaturated-blue");
+        &__link {
+          font-size: map-get($font-size, "medium");
+          text-decoration: none;
+          color: map-get($neutral-colors, "very-dark-desaturated-blue");
+          text-transform: uppercase;
+          position: relative;
 
-            &--btn {
-              background-color: map-get($primary-colors, "yellow");
-              color: map-get($neutral-colors, "white");
-            }
+          &--border-1::after {
+            content: "";
+            position: absolute;
+            bottom: -0.2rem;
+            left: -0.5rem;
+            height: 1rem;
+            width: 110%;
+            background-color: map-get($primary-colors, "yellow");
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 0.5rem;
+          }
+
+          &--border-2::after {
+            content: "";
+            position: absolute;
+            bottom: -0.2rem;
+            left: -0.5rem;
+            height: 1rem;
+            width: 110%;
+            background-color: map-get($primary-colors, "soft-red");
+            opacity: 0.5;
+            z-index: -1;
+            border-radius: 0.5rem;
           }
         }
+      }
+    }
+
+    &__item--only-bg:nth-of-type(2) {
+      @include background-image("../images/desktop/image-transform.jpg");
+      background-position: center;
+    }
+
+    &__item--only-bg:nth-of-type(3) {
+      @include background-image("../images/desktop/image-stand-out.jpg");
+      background-position: center;
+    }
+
+    &__item:nth-of-type(5) {
+      @include background-image("../images/desktop/image-graphic-design.jpg");
+      background-position: top;
+      padding: 0 10rem 5rem;
+      align-items: end;
+
+      & .main-container__wrap__grid__item__box {
+        align-items: center;
+        color: map-get($primary-colors, "dark-desaturated");
+      }
+    }
+
+    &__item:nth-of-type(6) {
+      @include background-image("../images/desktop/image-photography.jpg");
+      background-position: top;
+      padding: 0 10rem 5rem;
+      align-items: end;
+
+      & .main-container__wrap__grid__item__box {
+        align-items: center;
+        color: map-get($primary-colors, "dark-blue");
+      }
+    }
+
+    @include media-query(map-get($breakpoints, "tablet")) {
+      grid-template-columns: 1fr;
+
+      &__item--only-bg:nth-of-type(3) {
+        order: 4;
+      }
+      &__item:nth-of-type(4) {
+        order: 3;
+      }
+      &__item:nth-of-type(5) {
+        order: 5;
+      }
+      &__item:nth-of-type(6) {
+        order: 6;
       }
     }
   }
