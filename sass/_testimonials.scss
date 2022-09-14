@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.main-container__testimonials{
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+    padding: 4rem 2rem;
+
+    &__title{
+        font-size: map-get($font-size , 'large' );
+        color:  map-get($neutral-colors , 'dark-grayish-blue' );
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        font-family: $fraunces;
+    }
+
+    &__wrap{
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        &__card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            flex: 1 1 350px;
+            padding: 1rem 0;
+
+            &__img{
+                height: 50px;
+                width: 50px;
+                border-radius: 100%;
+            }
+
+            &__para{
+                font-size: map-get($font-size, 'medium');
+                color: map-get($neutral-colors, 'very-dark-grayish-blue' );
+                text-align: center;
+            }
+            
+            &__name{
+                font-size: map-get($font-size, 'medium' );
+                color: map-get($neutral-colors, 'very-dark-desaturated-blue' );
+                font-family: $fraunces;
+            }
+
+            &__work-position{
+                font-size: map-get($font-size, 'small' );
+                color: map-get($neutral-colors, 'grayish-blue' );
+            }
+        }
+    }
+}

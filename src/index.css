@@ -273,4 +273,54 @@ body {
   }
 }
 
+.main-container__testimonials {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+  padding: 4rem 2rem;
+}
+.main-container__testimonials__title {
+  font-size: clamp(2rem, 2rem + 1vw, 3rem);
+  color: hsl(232deg, 10%, 55%);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-family: "Fraunces", serif;
+}
+.main-container__testimonials__wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.main-container__testimonials__wrap__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  flex: 1 1 350px;
+  padding: 1rem 0;
+}
+.main-container__testimonials__wrap__card__img {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.main-container__testimonials__wrap__card__para {
+  font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+  color: hsl(213deg, 9%, 39%);
+  text-align: center;
+}
+.main-container__testimonials__wrap__card__name {
+  font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+  color: hsl(212deg, 27%, 19%);
+  font-family: "Fraunces", serif;
+}
+.main-container__testimonials__wrap__card__work-position {
+  font-size: clamp(1rem, 1.2rem + 0.5vw, 1.3rem);
+  color: hsl(210deg, 4%, 67%);
+}
+
 /*# sourceMappingURL=index.css.map */
