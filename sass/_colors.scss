@@ -1,0 +1,46 @@
+@use "mixins" as *;
+@use 'variables' as *;
+
+.main-container__colors {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    min-height: 45rem;
+    flex: 1 1 200px;
+  }
+
+  &__item:nth-child(1) {
+    @include background-image(
+      "../images/desktop/image-gallery-milkbottles.jpg"
+    );
+    background-position: center;
+  }
+  &__item:nth-child(2) {
+    @include background-image("../images/desktop/image-gallery-cone.jpg");
+    background-position: center;
+  }
+  &__item:nth-child(3) {
+    @include background-image("../images/desktop/image-gallery-orange.jpg");
+    background-position: center;
+  }
+  &__item:nth-child(4) {
+    @include background-image("../images/desktop/image-gallery-sugarcubes.jpg");
+    background-position: center;
+  }
+
+  @include media-query(map-get($breakpoints, 'tablet')){
+    &__item{
+      flex: 1 1 250px;
+    }
+  }
+
+  @include media-query(map-get($breakpoints, 'mobile')){
+    &__item{
+      min-height: 30rem;
+      flex: 1 1 150px;
+    }
+  }
+}

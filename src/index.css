@@ -323,4 +323,87 @@ body {
   color: hsl(210deg, 4%, 67%);
 }
 
+.main-container__colors {
+  grid-column: 1/-1;
+  grid-row: 3/4;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-container__colors__item {
+  min-height: 45rem;
+  flex: 1 1 200px;
+}
+.main-container__colors__item:nth-child(1) {
+  background-image: url("../images/desktop/image-gallery-milkbottles.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-container__colors__item:nth-child(2) {
+  background-image: url("../images/desktop/image-gallery-cone.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-container__colors__item:nth-child(3) {
+  background-image: url("../images/desktop/image-gallery-orange.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-container__colors__item:nth-child(4) {
+  background-image: url("../images/desktop/image-gallery-sugarcubes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media (max-width: 800px) {
+  .main-container__colors__item {
+    flex: 1 1 250px;
+  }
+}
+@media (max-width: 450px) {
+  .main-container__colors__item {
+    min-height: 30rem;
+    flex: 1 1 150px;
+  }
+}
+
+.footer {
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  min-height: 40rem;
+  background-color: hsl(168deg, 34%, 41%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer__title {
+  font-size: clamp(2rem, 2rem + 1vw, 3rem);
+  color: hsl(198deg, 62%, 26%);
+  font-family: "Barlow", sans-serif;
+  font-weight: 900;
+}
+.footer__list {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+}
+.footer__list__item {
+  list-style: none;
+  display: inline-block;
+  color: hsl(167deg, 40%, 24%);
+  font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+}
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+}
+.footer__socials__item i {
+  font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+  color: hsl(198deg, 62%, 26%);
+}
+
 /*# sourceMappingURL=index.css.map */
