@@ -23,7 +23,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/Minhote/sunny-landing)
-- Live Site URL: (https://sunnyland.netlify.app/)
+- Live Site URL: (https://sun-landing.vercel.app/)
 
 ## My process
 
