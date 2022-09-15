@@ -44,8 +44,10 @@ body {
   text-transform: uppercase;
   color: hsl(0deg, 0%, 100%);
   position: relative;
-  font-size: clamp(4.5rem, 4.6rem + 1vw, 6rem);
+  font-size: clamp(3rem, 3.3rem + 1.5vw, 4.5rem);
   margin-top: 2rem;
+  word-spacing: 1rem;
+  letter-spacing: 0.2rem;
 }
 .main-container__wrap__header__nav {
   display: flex;
@@ -144,7 +146,7 @@ body {
     content: "";
     position: absolute;
     right: 0;
-    top: -10%;
+    top: -9%;
     border-top: 10px solid transparent;
     border-left: 10px solid transparent;
     border-right: 10px solid white;
@@ -194,6 +196,7 @@ body {
   color: hsl(212deg, 27%, 19%);
   text-transform: uppercase;
   position: relative;
+  font-weight: 600;
 }
 .main-container__wrap__grid__item__box__link--border-1::after {
   content: "";
@@ -218,6 +221,9 @@ body {
   opacity: 0.5;
   z-index: -1;
   border-radius: 0.5rem;
+}
+.main-container__wrap__grid__item__box__link:hover::after {
+  opacity: 1;
 }
 .main-container__wrap__grid__item--only-bg:nth-of-type(2) {
   background-image: url("../images/desktop/image-transform.jpg");
@@ -312,15 +318,18 @@ body {
   font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
   color: hsl(213deg, 9%, 39%);
   text-align: center;
+  font-weight: 600;
 }
 .main-container__testimonials__wrap__card__name {
   font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
   color: hsl(212deg, 27%, 19%);
   font-family: "Fraunces", serif;
+  font-weight: 700;
 }
 .main-container__testimonials__wrap__card__work-position {
-  font-size: clamp(1rem, 1.2rem + 0.5vw, 1.3rem);
+  font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.3rem);
   color: hsl(210deg, 4%, 67%);
+  font-weight: 500;
 }
 
 .main-container__colors {
@@ -380,10 +389,10 @@ body {
   align-items: center;
 }
 .footer__title {
-  font-size: clamp(2rem, 2rem + 1vw, 3rem);
+  font-size: clamp(3rem, 3.3rem + 1.5vw, 4.5rem);
   color: hsl(198deg, 62%, 26%);
   font-family: "Barlow", sans-serif;
-  font-weight: 900;
+  font-weight: 700;
 }
 .footer__list {
   display: flex;
@@ -395,6 +404,10 @@ body {
   display: inline-block;
   color: hsl(167deg, 40%, 24%);
   font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+  font-weight: 500;
+}
+.footer__list__item:hover {
+  color: hsl(0deg, 0%, 100%);
 }
 .footer__socials {
   display: flex;
@@ -402,8 +415,11 @@ body {
   gap: 6rem;
 }
 .footer__socials__item i {
-  font-size: clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem);
+  font-size: clamp(2rem, 2rem + 1vw, 3rem);
   color: hsl(198deg, 62%, 26%);
+}
+.footer__socials__item i:hover {
+  color: hsl(0deg, 0%, 100%);
 }
 
 /*# sourceMappingURL=index.css.map */

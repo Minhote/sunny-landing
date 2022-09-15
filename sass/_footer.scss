@@ -1,46 +1,55 @@
 @use "variables" as *;
-@use "mixins"  as *;
+@use "mixins" as *;
 
 .footer {
   grid-column: 1 / -1;
   grid-row: 4 / 5;
   min-height: 40rem;
-  background-color: map-get($primary-colors , 'dark-moderate' );
+  background-color: map-get($primary-colors, "dark-moderate");
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 
-  &__title{
-    font-size: map-get($font-size, 'large' );
-    color: map-get($primary-colors , 'dark-blue' );
+  &__title {
+    font-size: map-get($font-size, "main");
+    color: map-get($primary-colors, "dark-blue");
     font-family: $barlow;
-    font-weight: 900;
+    font-weight: 700;
   }
 
-  &__list{
+  &__list {
     display: flex;
     justify-content: center;
     gap: 8rem;
 
-    &__item{
-        list-style: none;
-        display: inline-block;
-        color: map-get($primary-colors , 'dark-desaturated' );
-        font-size: map-get($font-size, 'medium' );
+    &__item {
+      list-style: none;
+      display: inline-block;
+      color: map-get($primary-colors, "dark-desaturated");
+      font-size: map-get($font-size, "medium");
+      font-weight: 500;
+
+      &:hover {
+        color: map-get($neutral-colors, "white");
+      }
     }
   }
 
-  &__socials{
+  &__socials {
     display: flex;
     justify-content: center;
     gap: 6rem;
 
-    &__item{
-        & i{
-            font-size: map-get($font-size, 'medium' );
-            color: map-get($primary-colors , 'dark-blue' );
+    &__item {
+      & i {
+        font-size: map-get($font-size, "large");
+        color: map-get($primary-colors, "dark-blue");
+
+        &:hover {
+          color: map-get($neutral-colors, "white");
         }
+      }
     }
   }
 }

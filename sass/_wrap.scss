@@ -25,6 +25,8 @@
       position: relative;
       font-size: map-get($font-size, "main");
       margin-top: 2rem;
+      word-spacing: 1rem;
+      letter-spacing: .2rem;
     }
 
     &__nav {
@@ -150,7 +152,7 @@
             content: "";
             position: absolute;
             right: 0;
-            top: -10%;
+            top: -9%;
             border-top: 10px solid transparent;
             border-left: 10px solid transparent;
             border-right: 10px solid white;
@@ -210,6 +212,7 @@
           color: map-get($neutral-colors, "very-dark-desaturated-blue");
           text-transform: uppercase;
           position: relative;
+          font-weight: 600;
 
           &--border-1::after {
             content: "";
@@ -235,6 +238,10 @@
             opacity: 0.5;
             z-index: -1;
             border-radius: 0.5rem;
+          }
+
+          &:hover::after{
+            opacity: 1;
           }
         }
       }

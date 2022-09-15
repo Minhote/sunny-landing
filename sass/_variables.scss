@@ -24,10 +24,10 @@ $fraunces: "Fraunces", serif;
 
 // Font Sizes
 $font-size: (
-  "main": clamp(4.5rem, 4.6rem + 1vw, 6rem),
+  "main": clamp(3rem, 3.3rem + 1.5vw, 4.5rem),
   "large": clamp(2rem, 2rem + 1vw, 3rem),
   "medium": clamp(1.3rem, 1.5rem + 0.5vw, 1.8rem),
-  "small": clamp(1rem, 1.2rem + 0.5vw, 1.3rem),
+  "small": clamp(1.2rem, 1.1rem + 0.5vw, 1.3rem),
 );
 
 //Breakpoints
