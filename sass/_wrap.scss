@@ -9,7 +9,7 @@
   grid-template-columns: repeat(2, 1fr);
 
   &__header {
-    @include background-image("../images/desktop/image-header.jpg");
+    @include background-image("./images/desktop/image-header.jpg");
     background-position: center;
     grid-column: 1 / -1;
     text-align: center;
@@ -26,7 +26,7 @@
       font-size: map-get($font-size, "main");
       margin-top: 2rem;
       word-spacing: 1rem;
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
     }
 
     &__nav {
@@ -240,7 +240,7 @@
             border-radius: 0.5rem;
           }
 
-          &:hover::after{
+          &:hover::after {
             opacity: 1;
           }
         }
@@ -248,17 +248,17 @@
     }
 
     &__item--only-bg:nth-of-type(2) {
-      @include background-image("../images/desktop/image-transform.jpg");
+      @include background-image("./images/desktop/image-transform.jpg");
       background-position: center;
     }
 
     &__item--only-bg:nth-of-type(3) {
-      @include background-image("../images/desktop/image-stand-out.jpg");
+      @include background-image("./images/desktop/image-stand-out.jpg");
       background-position: center;
     }
 
     &__item:nth-of-type(5) {
-      @include background-image("../images/desktop/image-graphic-design.jpg");
+      @include background-image("./images/desktop/image-graphic-design.jpg");
       background-position: top;
       padding: 0 10rem 5rem;
       align-items: end;
